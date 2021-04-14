@@ -18,9 +18,9 @@ intents:
 responses:
   utter_start: 
   - text: >
-        Hi, there.
-        Welcome to Senior Guardian!
-        Our aim is to help the aged people find the best insurance cover at the best price.
+        Hi, there. \n
+        Welcome to Senior Guardian! \n
+        Our aim is to help the aged people find the best insurance cover at the best price. \n
         Please enter your full name to get started!
 
   utter_greet:
