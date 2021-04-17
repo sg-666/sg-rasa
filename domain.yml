@@ -84,8 +84,14 @@ responses:
 
   utter_call_back:
   - text: >
-      Ok no problem!
+      Ok, no problem! \n
       Please enter a short description of your query below
+
+  utter_for_insurance:
+  - text: >
+      No problem, I can help with that! \n
+      Let's start by getting some basic information! \n
+      What kind of insurance quote are you looking for today?
 
 session_config:
   session_expiration_time: 60

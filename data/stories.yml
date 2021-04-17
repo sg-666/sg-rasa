@@ -48,3 +48,8 @@ stories:
   # - action: utter_ask_email
   # - intent: give_email
   # - action: utter_finalize_call_back
+
+- story: looking for insurance
+  steps:
+  - intent: looking_for_insurance
+  - action: utter_for_insurance
