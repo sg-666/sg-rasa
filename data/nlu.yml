@@ -95,7 +95,12 @@ nlu:
     - am I talking to a bot?
     - am I talking to a human?
 
+# Name is hard, only listed will work.
+# https://blog.rasa.com/named-name-recognition/
 - intent: give_name
   examples: |
-    - my name is [Yang](name) Fei(name)
-    - [Yang](name) [Fei](name)
+    - my name is [Yang Fei](name)
+    - [Tim](name)
+    - [George](name)
+    - [Sherry](name)
+    - [Scott](name)

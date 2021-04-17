@@ -1,7 +1,7 @@
 version: "2.0"
 
 entities:
-- name
+  - name
 
 intents:
   - start
@@ -13,7 +13,31 @@ intents:
   - mood_unhappy
   - bot_challenge
   - ask_weather
+  - give_name
+  - looking_for_insurance
+  - arrange_call_back
 
+slots:
+  name:
+    type: text
+    influence_conversation: false
+  # query:
+  #   type: text
+  #   influence_conversation: false
+  #   auto_fill: false
+  # phone:
+  #   type: text
+  #   influence_conversation: false
+  #   auto_fill: false
+
+# forms:
+#   callback_form:
+#     query:
+#     - type: from_entity
+#       entity: text
+#     phone:
+#     - type: from_entity
+#       entity: number
 
 responses:
   utter_start: 
@@ -43,7 +67,25 @@ responses:
   - text: "I am a bot"
 
   utter_name_response: 
-  - text: "Hi, {name}."
+  - text:  >
+      Hi, {name}.
+      Nice to meet you.
+      What can I help you with today?
+    buttons:
+      - title: "Looking for insurance"
+        payload: "/looking_for_insurance"
+      - title: "Arrange call back"
+        payload: "/arrange_call_back"
+
+  # utter_ask_phone:
+  # - text: >
+  #     Thank you {name}.
+  #     Please now enter the phone number you'd like us to contact with you on below.
+
+  utter_call_back:
+  - text: >
+      Ok no problem!
+      Please enter a short description of your query below
 
 session_config:
   session_expiration_time: 60
