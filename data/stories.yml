@@ -35,3 +35,16 @@ stories:
   - action: utter_start
   - intent: give_name
   - action: utter_name_response
+
+- story: call back
+  steps:
+  - intent: arrange_call_back
+  - action: utter_call_back
+  # - action: callback_form
+  # - active_loop: callback_form
+  # - user: "some query here"
+  # - action: utter_ask_phone
+  # - user: "0123445566"
+  # - action: utter_ask_email
+  # - intent: give_email
+  # - action: utter_finalize_call_back
