@@ -104,3 +104,31 @@ nlu:
     - [George](name)
     - [Sherry](name)
     - [Scott](name)
+
+- intent: life_insurance_type
+  examples: |
+    - accidential only
+    - natural only
+    - full cover
+
+- intent: visa_type
+  examples: |
+    - 600
+    - 601
+    - aus_pr
+
+- intent: age
+  examples: |
+    - [1-100]
+
+- intent: description
+  examples: |
+    - any
+
+- intent: choose_preference
+  examples: |
+    - not_sure_yet
+    - hospital_cover
+    - dental
+    - best_price
+

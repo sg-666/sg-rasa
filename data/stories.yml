@@ -53,3 +53,47 @@ stories:
   steps:
   - intent: looking_for_insurance
   - action: utter_for_insurance
+
+- story: choose health insurance
+  steps:
+  - intent: senior_health_insurance
+  - action: utter_for_visa_type
+
+- story: choose life insurance
+  steps:
+  - intent: senior_life_insurance
+  - action: utter_life_insurance_type
+  - intent: life_insurance_type
+  - action: utter_for_visa_type
+
+- story: choose normal visa type
+  steps:
+  - intent: visa_type
+  - action: utter_for_age
+
+- story: choose other
+  steps:
+  - intent: other
+  - action: utter_call_back
+
+- story: require age
+  steps:
+  - intent: age
+  - action: utter_for_issues
+
+- story: yes description
+  steps:
+  - intent: yes
+  - action: utter_for_description
+  - intent: any
+  - action: utter_for_preference
+
+- story: no description
+  steps:
+  - intent: no
+  - action: utter_for_preference
+
+- story: choose preference
+  steps:
+  - intent: choose_preference
+  - action: utter_for_result

@@ -92,6 +92,74 @@ responses:
       No problem, I can help with that! \n
       Let's start by getting some basic information! \n
       What kind of insurance quote are you looking for today?
+    buttons:
+      - title: "Senior Health Insurance"
+        payload: "/senior_health_insurance"
+      - title: "Senior Life Insurance"
+        payload: "/senior_life_insurance"
+
+  utter_life_insurance_type:
+  - text: >
+      Ok no problem, I can help you find the best life insurance policy \n
+      Can I know the type of cover you are looking for?
+
+
+  utter_for_visa_type:
+  - text: >
+      OK, Great! \n
+      If I could now take some if your details? \n
+      What's your visa type? \n
+    buttons:
+      - title: "600"
+        payload: "/600"
+      - title: "601"
+        payload: "/601"
+      - title: "Aus Pr"
+        payload: "/aus_pr"
+      - title: "Other"
+        payload: "/other"
+
+  utter_for_age:
+    - text: >
+        And can you tell me the age?
+
+  utter_for_issues:
+    - text: >
+        Thank you! \n
+        Do you have any known health issues? \n
+      buttons:
+        - title: "Yes"
+          payload: "/yes"
+        - title: "No"
+          payload: "/no"
+
+  utter_for_description:
+    - text: >
+        Ok, please could you enter a description of your health issues below?
+
+  utter_for_preference:
+  - text: >
+      Thanks {name} \n
+      We're nearly done now \n
+      Can I know What's most important to you \n
+    buttons:
+      - title: "Not sure yet - just want to have a look"
+        payload: "/not_sure_yet"
+      - title: "Hospital cover \n"
+        payload: "/hospital_cover"
+      - title: "Dental"
+        payload: "/dental"
+      - title: "Best price"
+        payload: "/best_price"
+
+  utter_for_result:
+    - text: >
+        Awsome! \n
+        We're done! \n
+        Here is the best insurance for you! \n
+      buttons:
+        - title: "Click here to see the result!"
+          payload: "/see_the_result"
 
 session_config:
   session_expiration_time: 60
