@@ -97,3 +97,8 @@ stories:
   steps:
   - intent: choose_preference
   - action: utter_for_result
+    
+- story: show result
+  steps:
+  - intent: show_result
+  - action: utter_show_result

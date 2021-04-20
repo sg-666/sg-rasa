@@ -16,6 +16,7 @@ intents:
   - give_name
   - looking_for_insurance
   - arrange_call_back
+  - show_result
 
 slots:
   name:
@@ -160,6 +161,63 @@ responses:
       buttons:
         - title: "Click here to see the result!"
           payload: "/see_the_result"
+
+  utter_show_result:
+    - custom:
+        # Should query from our data, but no time...
+        results:
+        - name: "Medibank Overseas Visitors Starter Hospital and Medical"
+          vendor: "medibank"
+          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5dbba46f052d1.png"
+          productDescription: "From $51 per month."
+          meetsCondition8501: false
+          hospitalCover: false
+          dental: false
+          GPVisits: false
+          price: 51
+          visaTypes:
+            - 600
+            - 601
+          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
+        - name: "Frank Basic Workers Cover"
+          vendor: "frank"
+          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png"
+          productDescription: "From $64.50 per month."
+          meetsCondition8501: false
+          hospitalCover: false
+          dental: true
+          GPVisits: false
+          price: 64.5
+          visaTypes:
+            - 600
+            - 601
+          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
+        - name: "Frank Basic Workers Cover"
+          vendor: "frank"
+          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png"
+          productDescription: "From $64.50 per month."
+          meetsCondition8501: false
+          hospitalCover: false
+          dental: true
+          GPVisits: false
+          price: 64.5
+          visaTypes:
+            - 600
+            - 601
+          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
+        - name: "Frank Basic Workers Cover"
+          vendor: "frank"
+          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png"
+          productDescription: "From $64.50 per month."
+          meetsCondition8501: false
+          hospitalCover: false
+          dental: true
+          GPVisits: false
+          price: 64.5
+          visaTypes:
+            - 600
+            - 601
+          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
 
 session_config:
   session_expiration_time: 60
