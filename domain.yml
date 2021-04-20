@@ -18,10 +18,10 @@ intents:
   - arrange_call_back
   - show_result
 
-slots:
-  name:
-    type: text
-    influence_conversation: false
+#slots:
+ # name:
+  #  type: text
+   # influence_conversation: false
   # query:
   #   type: text
   #   influence_conversation: false
@@ -219,6 +219,12 @@ responses:
             - 601
           quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
 
+
+
+
+
+
 session_config:
   session_expiration_time: 60
   carry_over_slots_to_new_session: true
+

@@ -3,6 +3,17 @@
 language: en
 
 pipeline:
+  - name: WhitespaceTokenizer
+  - name: LexicalSyntacticFeaturizer
+  - name: CountVectorsFeaturizer
+    token_pattern: (?u)\b\w+\b
+  - name: DucklingEntityExtractor
+    url: http://localhost:8000
+    dimensions:
+      - number
+  - name: DIETClassifier
+    epochs: 100
+  - name: EntitySynonymMapper
 # # No configuration for the NLU pipeline was provided. The following default pipeline was used to train your model.
 # # If you'd like to customize it, uncomment and adjust the pipeline.
 # # See https://rasa.com/docs/rasa/tuning-your-model for more information.
@@ -28,6 +39,10 @@ pipeline:
 # Configuration for Rasa Core.
 # https://rasa.com/docs/rasa/core/policies/
 policies:
+  - name: TEDPolicy
+    epochs: 100
+  - name: AugmentedMemoizationPolicy
+  - name: RulePolicy
 # # No configuration for policies was provided. The following default policies were used to train your model.
 # # If you'd like to customize them, uncomment and adjust the policies.
 # # See https://rasa.com/docs/rasa/policies for more information.
@@ -37,3 +52,6 @@ policies:
 #     epochs: 100
 #     constrain_similarities: true
 #   - name: RulePolicy
+
+
+  ############## Form policy, if useless, plz remove it

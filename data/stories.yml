@@ -68,7 +68,7 @@ stories:
 
 - story: choose normal visa type
   steps:
-  - intent: visa_type
+  - intent: "600"
   - action: utter_for_age
 
 - story: choose other
@@ -95,8 +95,8 @@ stories:
 
 - story: choose preference
   steps:
-  - intent: choose_preference
-  - action: utter_for_result
+  - intent: dental
+  - action: utter_show_result
     
 - story: show result
   steps:
