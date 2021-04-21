@@ -21,5 +21,4 @@ jobs:
         env:
           PROJECT_ID: seniorguardian
           APPLICATION_CREDENTIALS: ${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}
-        with:
-          args: app deploy app.yaml
+      - run: gcloud config set app/cloud_build_timeout 1200 && gcloud app deploy app.yaml
