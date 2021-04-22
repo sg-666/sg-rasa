@@ -68,7 +68,11 @@ stories:
 
 - story: choose normal visa type
   steps:
-  - intent: "600"
+  - intent: choose_600
+  - action: utter_for_age
+  - intent: choose_601
+  - action: utter_for_age
+  - intent: aus_pr
   - action: utter_for_age
 
 - story: choose other
@@ -83,21 +87,27 @@ stories:
 
 - story: yes description
   steps:
-  - intent: yes
+  - intent: choose_yes
   - action: utter_for_description
-  - intent: any
+  - intent: description
   - action: utter_for_preference
 
 - story: no description
   steps:
-  - intent: no
+  - intent: choose_no
   - action: utter_for_preference
 
 - story: choose preference
   steps:
+  - intent: not_sure_yet
+  - action: utter_show_result
+  - intent: hospital_cover
+  - action: utter_show_result
   - intent: dental
   - action: utter_show_result
-    
+  - intent: best_price
+  - action: utter_show_result
+
 - story: show result
   steps:
   - intent: show_result

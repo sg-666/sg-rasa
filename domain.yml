@@ -2,6 +2,8 @@ version: "2.0"
 
 entities:
   - name
+  - age
+  - description
 
 intents:
   - start
@@ -17,11 +19,20 @@ intents:
   - looking_for_insurance
   - arrange_call_back
   - show_result
+  - age
+  - description
 
-#slots:
- # name:
-  #  type: text
-   # influence_conversation: false
+slots:
+  name:
+    type: text
+    influence_conversation: true
+  description:
+    type: text
+    influence_conversation: true
+  age:
+    type: float
+    min_value: 0.0
+    max_value: 130.0
   # query:
   #   type: text
   #   influence_conversation: false
@@ -112,11 +123,11 @@ responses:
       What's your visa type? \n
     buttons:
       - title: "600"
-        payload: "/600"
+        payload: '/choose_600'
       - title: "601"
-        payload: "/601"
+        payload: '/choose_601'
       - title: "Aus Pr"
-        payload: "/aus_pr"
+        payload: '/aus_pr'
       - title: "Other"
         payload: "/other"
 
@@ -130,9 +141,9 @@ responses:
         Do you have any known health issues? \n
       buttons:
         - title: "Yes"
-          payload: "/yes"
+          payload: "/choose_yes"
         - title: "No"
-          payload: "/no"
+          payload: "/choose_no"
 
   utter_for_description:
     - text: >

@@ -111,16 +111,9 @@ nlu:
     - natural only
     - full cover
 
-- intent: visa_type
-  examples: |
-    - 600
-    - 601
-    - aus_pr
-
 - intent: age
   examples: |
     - "60"
-    - any
 
 - intent: description
   examples: |
