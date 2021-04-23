@@ -1,0 +1,7 @@
+version: "2.0"
+nlu:
+- intent: show_result
+  examples: |
+    - show me the result
+    - show me
+    - result

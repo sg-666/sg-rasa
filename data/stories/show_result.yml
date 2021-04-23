@@ -1,0 +1,6 @@
+version: "2.0"
+stories:
+  - story: show result
+    steps:
+    - intent: show_result
+    - action: utter_show_result

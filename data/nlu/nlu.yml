@@ -125,9 +125,3 @@ nlu:
     - hospital_cover
     - dental
     - best_price
-
-- intent: show_result
-  examples: |
-    - show me the result
-    - show me
-    - result
