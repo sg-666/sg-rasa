@@ -1,0 +1,19 @@
+version: "2.0"
+rules:
+- rule: Activate call back form
+  steps:
+  - intent: arrange_call_back
+  - action: utter_can_do
+  - action: callback_form
+  - active_loop: callback_form
+
+- rule: Submit call back form
+  condition:
+  - active_loop: callback_form
+  steps:
+  - action: callback_form
+  - active_loop: null
+  - slot_was_set:
+    - requested_slot: null
+  - action: utter_call_back_submit
+  # - action: utter_slots_values

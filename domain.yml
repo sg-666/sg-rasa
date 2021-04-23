@@ -1,230 +1,215 @@
-version: "2.0"
-
-entities:
-  - name
-
+version: '2.0'
+session_config:
+  session_expiration_time: 1
+  carry_over_slots_to_new_session: false
 intents:
-  - start
-  - greet
-  - goodbye
-  - affirm
-  - deny
-  - mood_great
-  - mood_unhappy
-  - bot_challenge
-  - ask_weather
-  - give_name
-  - looking_for_insurance
-  - arrange_call_back
-  - show_result
-
-#slots:
- # name:
-  #  type: text
-   # influence_conversation: false
-  # query:
-  #   type: text
-  #   influence_conversation: false
-  #   auto_fill: false
-  # phone:
-  #   type: text
-  #   influence_conversation: false
-  #   auto_fill: false
-
-# forms:
-#   callback_form:
-#     query:
-#     - type: from_entity
-#       entity: text
-#     phone:
-#     - type: from_entity
-#       entity: number
-
+- start
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+- ask_weather
+- give_name
+- looking_for_insurance
+- arrange_call_back
+- show_result
+- age
+- description
+entities:
+- name
+- age
+- description
+slots:
+  name:
+    type: text
+    influence_conversation: false
+  query:
+    type: text
+    auto_fill: false
+    influence_conversation: true
+  phone:
+    type: text
+    influence_conversation: true
+  description:
+    type: text
+    influence_conversation: true
+  age:
+    type: float
+    min_value: 0.0
+    max_value: 130.0
 responses:
-  utter_start: 
-  - text: >
-        Hi, there. \n
-        Welcome to Senior Guardian! \n
-        Our aim is to help the aged people find the best insurance cover at the best price. \n
-        Please enter your full name to get started!
-
+  utter_start:
+  - text: |
+      Hi, there. \n Welcome to Senior Guardian! \n Our aim is to help the aged people find the best insurance cover at the best price. \n Please enter your full name to get started!
   utter_greet:
-  - text: "Hey! How are you?"
-
+  - text: Hey! How are you?
   utter_cheer_up:
-  - text: "Here is something to cheer you up:"
-    image: "https://i.imgur.com/nGF1K8f.jpg"
-
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
   utter_did_that_help:
-  - text: "Did that help you?"
-
+  - text: Did that help you?
   utter_happy:
-  - text: "Great, carry on!"
-
+  - text: Great, carry on!
   utter_goodbye:
-  - text: "Bye"
-
+  - text: Bye
   utter_iamabot:
-  - text: "I am a bot"
-
-  utter_name_response: 
-  - text:  >
-      Hi, {name}.
-      Nice to meet you.
-      What can I help you with today?
+  - text: I am a bot
+  utter_name_response:
+  - text: |
+      Hi, {name}. Nice to meet you. What can I help you with today?
     buttons:
-      - title: "Looking for insurance"
-        payload: "/looking_for_insurance"
-      - title: "Arrange call back"
-        payload: "/arrange_call_back"
-
-  # utter_ask_phone:
-  # - text: >
-  #     Thank you {name}.
-  #     Please now enter the phone number you'd like us to contact with you on below.
-
+    - title: Looking for insurance
+      payload: /looking_for_insurance
+    - title: Arrange call back
+      payload: /arrange_call_back
+  utter_can_do:
+  - text: Ok no problem!
+  - text: Sure thing!
+  - text: Can do!
+  - text: You got it. 👍
   utter_call_back:
-  - text: >
-      Ok, no problem! \n
-      Please enter a short description of your query below
-
+  - text: |
+      Ok, no problem! \n Please enter a short description of your query below
+  utter_call_back_submit:
+  - text: |
+      Thanks {name}. I've sent your details to our customer service team. So someone will give you a call soon. Thank you for your time. And have a great day. 😄
   utter_for_insurance:
-  - text: >
-      No problem, I can help with that! \n
-      Let's start by getting some basic information! \n
-      What kind of insurance quote are you looking for today?
+  - text: |
+      No problem, I can help with that! \n Let's start by getting some basic information! \n What kind of insurance quote are you looking for today?
     buttons:
-      - title: "Senior Health Insurance"
-        payload: "/senior_health_insurance"
-      - title: "Senior Life Insurance"
-        payload: "/senior_life_insurance"
-
+    - title: Senior Health Insurance
+      payload: /senior_health_insurance
+    - title: Senior Life Insurance
+      payload: /senior_life_insurance
   utter_life_insurance_type:
-  - text: >
-      Ok no problem, I can help you find the best life insurance policy \n
-      Can I know the type of cover you are looking for?
-
-
+  - text: |
+      Ok no problem, I can help you find the best life insurance policy \n Can I know the type of cover you are looking for?
   utter_for_visa_type:
-  - text: >
-      OK, Great! \n
-      If I could now take some if your details? \n
-      What's your visa type? \n
+  - text: |
+      OK, Great! \n If I could now take some if your details? \n What's your visa type? \n
     buttons:
       - title: "600"
-        payload: "/600"
+        payload: '/choose_600'
       - title: "601"
-        payload: "/601"
+        payload: '/choose_601'
       - title: "Aus Pr"
-        payload: "/aus_pr"
+        payload: '/aus_pr'
       - title: "Other"
         payload: "/other"
 
   utter_for_age:
-    - text: >
-        And can you tell me the age?
-
+  - text: |
+      And can you tell me the age?
   utter_for_issues:
     - text: >
         Thank you! \n
         Do you have any known health issues? \n
       buttons:
         - title: "Yes"
-          payload: "/yes"
+          payload: "/choose_yes"
         - title: "No"
-          payload: "/no"
+          payload: "/choose_no"
 
   utter_for_description:
-    - text: >
-        Ok, please could you enter a description of your health issues below?
-
+  - text: |
+      Ok, please could you enter a description of your health issues below?
   utter_for_preference:
-  - text: >
-      Thanks {name} \n
-      We're nearly done now \n
-      Can I know What's most important to you \n
+  - text: |
+      Thanks {name} \n We're nearly done now \n Can I know What's most important to you \n
     buttons:
-      - title: "Not sure yet - just want to have a look"
-        payload: "/not_sure_yet"
-      - title: "Hospital cover \n"
-        payload: "/hospital_cover"
-      - title: "Dental"
-        payload: "/dental"
-      - title: "Best price"
-        payload: "/best_price"
-
+    - title: Not sure yet - just want to have a look
+      payload: /not_sure_yet
+    - title: "Hospital cover \n"
+      payload: /hospital_cover
+    - title: Dental
+      payload: /dental
+    - title: Best price
+      payload: /best_price
   utter_for_result:
-    - text: >
-        Awsome! \n
-        We're done! \n
-        Here is the best insurance for you! \n
-      buttons:
-        - title: "Click here to see the result!"
-          payload: "/see_the_result"
-
+  - text: |
+      Awsome! \n We're done! \n Here is the best insurance for you! \n
+    buttons:
+    - title: Click here to see the result!
+      payload: /see_the_result
   utter_show_result:
-    - custom:
-        # Should query from our data, but no time...
-        results:
-        - name: "Medibank Overseas Visitors Starter Hospital and Medical"
-          vendor: "medibank"
-          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5dbba46f052d1.png"
-          productDescription: "From $51 per month."
-          meetsCondition8501: false
-          hospitalCover: false
-          dental: false
-          GPVisits: false
-          price: 51
-          visaTypes:
-            - 600
-            - 601
-          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
-        - name: "Frank Basic Workers Cover"
-          vendor: "frank"
-          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png"
-          productDescription: "From $64.50 per month."
-          meetsCondition8501: false
-          hospitalCover: false
-          dental: true
-          GPVisits: false
-          price: 64.5
-          visaTypes:
-            - 600
-            - 601
-          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
-        - name: "Frank Basic Workers Cover"
-          vendor: "frank"
-          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png"
-          productDescription: "From $64.50 per month."
-          meetsCondition8501: false
-          hospitalCover: false
-          dental: true
-          GPVisits: false
-          price: 64.5
-          visaTypes:
-            - 600
-            - 601
-          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
-        - name: "Frank Basic Workers Cover"
-          vendor: "frank"
-          logo: "https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png"
-          productDescription: "From $64.50 per month."
-          meetsCondition8501: false
-          hospitalCover: false
-          dental: true
-          GPVisits: false
-          price: 64.5
-          visaTypes:
-            - 600
-            - 601
-          quoteLink: "https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog"
+  - custom:
+      results:
+      - name: Medibank Overseas Visitors Starter Hospital and Medical
+        vendor: medibank
+        logo: https://dvh1deh6tagwk.cloudfront.net/niche-builder/5dbba46f052d1.png
+        productDescription: From $51 per month.
+        meetsCondition8501: false
+        hospitalCover: false
+        dental: false
+        GPVisits: false
+        price: 51
+        visaTypes:
+        - 600
+        - 601
+        quoteLink: https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog
+      - name: Frank Basic Workers Cover
+        vendor: frank
+        logo: https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png
+        productDescription: From $64.50 per month.
+        meetsCondition8501: false
+        hospitalCover: false
+        dental: true
+        GPVisits: false
+        price: 64.5
+        visaTypes:
+        - 600
+        - 601
+        quoteLink: https://www.frankaustralia.com.au/HealthCover/BasicWorkersCover?agentID=A07600&paymentfrequency=month&visa=457&covered=single
+      - name: Allianz Budget Working Cover
+        vendor: Allianz
+        logo: https://dvh1deh6tagwk.cloudfront.net/niche-builder/5fd78bd485ceb.png
+        productDescription: From $75 per month.
+        meetsCondition8501: true
+        hospitalCover: true
+        dental: false
+        GPVisits: false
+        price: 75
+        visaTypes:
+        - 600
+        - 601
+        quoteLink: https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog
+      - name: Frank Minimum Working Visa Cover
+        vendor: frank
+        logo: https://dvh1deh6tagwk.cloudfront.net/niche-builder/5d8ae9f079367.png
+        productDescription: From $75 per month.
+        meetsCondition8501: true
+        hospitalCover: true
+        dental: false
+        GPVisits: false
+        price: 75
+        visaTypes:
+        - 600
+        - 601
+        quoteLink: https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog
+      - name: Medibank Overseas Workers Premium Hospital, Medical and Extras
+        vendor: medibank
+        logo: https://dvh1deh6tagwk.cloudfront.net/niche-builder/5dbba46f052d1.png
+        productDescription: From $329.50 per month.
+        meetsCondition8501: true
+        hospitalCover: true
+        dental: true
+        GPVisits: true
+        price: 329.50
+        visaTypes:
+        - 600
+        - 601
+        quoteLink: https://www.medibank.com.au/overseas-health-insurance/cover/starter-hospital-medical/?dclid=CPbfnbD96-8CFf2IZgIdvY8Eog
 
-
-
-
-
-
-session_config:
-  session_expiration_time: 60
-  carry_over_slots_to_new_session: true
-
+  utter_ask_query:
+  - text: "Enter a short description of the query"
+  utter_ask_phone:
+  - text: "Enter phone number"
+forms:
+  callback_form:
+    query:
+    - type: from_text
+    phone:
+    - type: from_text
